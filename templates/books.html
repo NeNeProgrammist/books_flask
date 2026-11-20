@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Книги{% endblock %}
+{% block content %}
+<h1>Перейдите к книгам</h1>
+    <nav>
+        <a href="{{ url_for('one') }}">Туча</a>
+        <a href="{{ url_for('two') }}">И.И. Пущину</a>
+    </nav>
+
+<h2>Колличество книг ({{ count }})</h2>
+
+<p>Перейдите к книгам нажав на их название</p>
+{% endblock %}

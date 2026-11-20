@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Главная гостевая книга{% endblock %}
+{% block content %}
+<h1>Оставте  сообщение</h1>
+<form method="post" action="{{ url_for('index') }}">
+    <label>Имя:<br>
+    <input type="text" name="name" required>
+    </label><br>
+    <label>Сообщение:<br>
+    <textarea name="text" rows="4" required></textarea>
+    </label><br>
+    <button type="submit">Отправить</button>
+</form>
+
+<h2>Сообщение ({{ messages|length }})</h2>
+
+{% for m in messages|reverse %}
+<div class="message">
+    <strong>{{ m.name }}</strong>
+    <small>{{ m.time }}</small>
+    <p>{{ m.text }}</p>
+</div>
+{% else %}
+<p>Пока сообщений нет, будьте первым!</p>
+{% endfor %}
+{% endblock %}
